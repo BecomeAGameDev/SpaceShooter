@@ -495,7 +495,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 2.8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -892,7 +892,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1998042049}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 2.8
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1242,8 +1242,6 @@ GameObject:
   - component: {fileID: 1998042051}
   - component: {fileID: 1998042054}
   - component: {fileID: 1998042055}
-  - component: {fileID: 1998042057}
-  - component: {fileID: 1998042053}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Player
@@ -1289,7 +1287,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: de8d1b9bea7d641429c9d37a22aedcfb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 19b274314a4e5414585f0eea2da19e7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1361,32 +1359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d4057e54f1d09459ad3baab1f6e192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &1998042053
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998042047}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.064391136}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16, y: 16}
-    newSize: {x: 16, y: 16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5.182248, y: 14.840954}
-  m_EdgeRadius: 0
 --- !u!114 &1998042054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,11 +1371,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ef7422da7db7b45b50d7f096bc0cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 1523351694}
+  firePointSx: {fileID: 1523351694}
+  firePointDx: {fileID: 230434594}
   bulletPrefab: {fileID: 8191088207558509766, guid: 6b01d50f54be4274398b28b8feb97039,
     type: 3}
-  fireRate: 5
-  bulletForce: 0
 --- !u!114 &1998042055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,7 +1404,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16, y: 16}
+    oldSize: {x: 35.079998, y: 24.802656}
     newSize: {x: 16, y: 16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1441,32 +1412,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 3, y: 8}
-  m_EdgeRadius: 0
---- !u!61 &1998042057
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998042047}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -4.571787}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16, y: 16}
-    newSize: {x: 16, y: 16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 16, y: 5.826168}
   m_EdgeRadius: 0
 --- !u!1001 &5369743559234693277
 PrefabInstance:

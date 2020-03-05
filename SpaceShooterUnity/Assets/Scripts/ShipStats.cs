@@ -152,6 +152,12 @@ public class ShipStats : MonoBehaviour
         public float maxTurboSpeed_Mul { get { return _maxTurboSpeed_Mul; } set { _maxTurboSpeed_Mul = value; } }
         public int maxTurboSpeed_Add { get { return _maxTurboSpeed_Add; } set { _maxTurboSpeed_Add = value; } }
 
+        // TODO: aggiungere questi
+        // Maximum Turbo Fuel
+        // Turbo Fuel regeneration
+        // Turbo Fuel regeneration limit
+        // Modifier for Turbo Fuel gained from pickups
+
         // Ship's Size
         private int _size = 10;
         private float _size_Mul = 1f;
