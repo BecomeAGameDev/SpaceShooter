@@ -212,22 +212,22 @@ public class ShipStats : MonoBehaviour
     public class shipWpn
     {
         // Weapon Base Damage Modifier (damage caused to enemies' health)
-        private int _BaseDamageMod = 1;
-        private float _BaseDamageMod_Mul = 1f;
-        private int _BaseDamageMod_Add = 0;
+        private int _baseDamageMod = 1;
+        private float _baseDamageMod_Mul = 1f;
+        private int _baseDamageMod_Add = 0;
 
-        public int BaseDamageMod { get { return _BaseDamageMod; } set { _BaseDamageMod = value; } }
-        public float BaseDamageMod_Mul { get { return _BaseDamageMod_Mul; } set { _BaseDamageMod_Mul = value; } }
-        public int BaseDamageMod_Add { get { return _BaseDamageMod_Add; } set { _BaseDamageMod_Add = value; } }
+        public int baseDamageMod { get { return _baseDamageMod; } set { _baseDamageMod = value; } }
+        public float baseDamageMod_Mul { get { return _baseDamageMod_Mul; } set { _baseDamageMod_Mul = value; } }
+        public int baseDamageMod_Add { get { return _baseDamageMod_Add; } set { _baseDamageMod_Add = value; } }
 
         // Weapon Shield Damage Modifier (damage caused to enemies' shield)
-        private int _ShieldDamageMod = 1;
-        private float _ShieldDamageMod_Mul = 1f;
-        private int _ShieldDamageMod_Add = 0;
+        private int _shieldDamageMod = 1;
+        private float _shieldDamageMod_Mul = 1f;
+        private int _shieldDamageMod_Add = 0;
 
-        public int ShieldDamageMod { get { return _ShieldDamageMod; } set { _ShieldDamageMod = value; } }
-        public float ShieldDamageMod_Mul { get { return _ShieldDamageMod_Mul; } set { _ShieldDamageMod_Mul = value; } }
-        public int ShieldDamageMod_Add { get { return _ShieldDamageMod_Add; } set { _ShieldDamageMod_Add = value; } }
+        public int shieldDamageMod { get { return _shieldDamageMod; } set { _shieldDamageMod = value; } }
+        public float shieldDamageMod_Mul { get { return _shieldDamageMod_Mul; } set { _shieldDamageMod_Mul = value; } }
+        public int shieldDamageMod_Add { get { return _shieldDamageMod_Add; } set { _shieldDamageMod_Add = value; } }
 
         //// Weapon FireRate (bullets per seconds) VANNO RESI DEI MODIFIERS
         //private int _FireRate = 5;
