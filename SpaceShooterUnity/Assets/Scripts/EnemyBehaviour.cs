@@ -21,7 +21,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            damageTaken = collision.gameObject.GetComponent<BulletBehaviour>().bullet.damage;
+            damageTaken = collision.gameObject.GetComponent<BulletBehaviour>().bulletStats.baseDmg;
             enemy.health -= damageTaken;
         }
 

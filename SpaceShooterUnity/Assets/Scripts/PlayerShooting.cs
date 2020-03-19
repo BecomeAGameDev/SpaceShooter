@@ -11,15 +11,18 @@ public class PlayerShooting : MonoBehaviour
     weapon leftWpn = new weapon();
     weapon rightWpn = new weapon();
 
-    class weapon // TODO: aggiungere metodi get e set per le variabili e poi SPOSTARE QUESTA CLASSE IN UN FILE CHIAMATO WeaponStats.cs, strutturato come ShipStats.cs
-    { 
+    class weapon
+    {
         public int fireRate;
-        public int bulletForce;
+        public int shootImpulse;
+        public float lifeTime;
+
+        public int baseDmg;
+        public int shieldDmg;
 
         public float initialTime;
         public float shootTime;
         public float shootDelay;
-      
     }
 
     // Start is called before the first frame update
@@ -35,11 +38,21 @@ public class PlayerShooting : MonoBehaviour
     {
 
         // Getting properties from WeaponStats.cs
-        leftWpn.fireRate = 5;
-        rightWpn.fireRate = 5;
+        // TODO: sarebbe bello spostare questi in una funzione che si attivi solo se cambiano
+        leftWpn.fireRate = GetComponent<WpnStats>().leftWpnStats.fireRate;
+        rightWpn.fireRate = GetComponent<WpnStats>().rightWpnStats.fireRate;
 
-        leftWpn.bulletForce = 20;
-        rightWpn.bulletForce = 20;
+        leftWpn.shootImpulse = GetComponent<WpnStats>().leftWpnStats.shootImpulse;
+        rightWpn.shootImpulse = GetComponent<WpnStats>().rightWpnStats.shootImpulse;
+
+        leftWpn.lifeTime = GetComponent<WpnStats>().leftWpnStats.lifeTime;
+        rightWpn.lifeTime = GetComponent<WpnStats>().rightWpnStats.lifeTime;
+
+        leftWpn.baseDmg = GetComponent<WpnStats>().leftWpnDmg.baseDmg;
+        rightWpn.baseDmg = GetComponent<WpnStats>().rightWpnDmg.baseDmg;
+
+        leftWpn.shieldDmg = GetComponent<WpnStats>().leftWpnDmg.shieldDmg;
+        rightWpn.shieldDmg = GetComponent<WpnStats>().rightWpnDmg.shieldDmg;
 
         // Defining the shoot Delay and the time passed since initialTime
         leftWpn.shootTime = Time.time - leftWpn.initialTime;
@@ -75,7 +88,14 @@ public class PlayerShooting : MonoBehaviour
             rb = bullet.GetComponent<Rigidbody2D>();
 
             // The force of fire is given with Impulse mode
-            rb.AddForce(firePointSx.up * leftWpn.bulletForce, ForceMode2D.Impulse);
+            //TODO: prova con velocità invece che forza, così puoi sommare la velocità del player al proiettile 
+            rb.AddForce(firePointSx.up * leftWpn.shootImpulse, ForceMode2D.Impulse);
+
+            // set bullet properties
+            bullet.GetComponent<BulletBehaviour>().bulletStats.lifeTime = leftWpn.lifeTime;
+            bullet.GetComponent<BulletBehaviour>().bulletStats.baseDmg = leftWpn.baseDmg;
+            bullet.GetComponent<BulletBehaviour>().bulletStats.shieldDmg = leftWpn.shieldDmg;
+
         }
 
         if (wpn == 2)
@@ -85,7 +105,12 @@ public class PlayerShooting : MonoBehaviour
             rb = bullet.GetComponent<Rigidbody2D>();
 
             // The force of fire is given with Impulse mode
-            rb.AddForce(firePointDx.up * rightWpn.bulletForce, ForceMode2D.Impulse);
+            rb.AddForce(firePointDx.up * rightWpn.shootImpulse, ForceMode2D.Impulse);
+
+            // set bullet properties
+            bullet.GetComponent<BulletBehaviour>().bulletStats.lifeTime = rightWpn.lifeTime;
+            bullet.GetComponent<BulletBehaviour>().bulletStats.baseDmg = rightWpn.baseDmg;
+            bullet.GetComponent<BulletBehaviour>().bulletStats.shieldDmg = rightWpn.shieldDmg;
         }
     }
 }
