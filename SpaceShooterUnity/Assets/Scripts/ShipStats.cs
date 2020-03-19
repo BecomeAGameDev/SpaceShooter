@@ -134,30 +134,6 @@ public class ShipStats : MonoBehaviour
         public float maxSpeed_Mul { get { return _maxSpeed_Mul; } set { _maxSpeed_Mul = value; } }
         public int maxSpeed_Add { get { return _maxSpeed_Add; } set { _maxSpeed_Add = value; } }
 
-        // Engine's Turbo thrust
-        private int _turboThrust = 40000;
-        private float _turboThrust_Mul = 1f;
-        private int _turboThrust_Add = 0;
-
-        public int turboThrust { get { return _turboThrust; } set { _turboThrust = value; } }
-        public float turboThrust_Mul { get { return _turboThrust_Mul; } set { _turboThrust_Mul = value; } }
-        public int turboThrust_Add { get { return _turboThrust_Add; } set { _turboThrust_Add = value; } }
-
-        // Maximum Turbo speed
-        private int _maxTurboSpeed = 50;
-        private float _maxTurboSpeed_Mul = 1f;
-        private int _maxTurboSpeed_Add = 0;
-
-        public int maxTurboSpeed { get { return _maxTurboSpeed; } set { _maxTurboSpeed = value; } }
-        public float maxTurboSpeed_Mul { get { return _maxTurboSpeed_Mul; } set { _maxTurboSpeed_Mul = value; } }
-        public int maxTurboSpeed_Add { get { return _maxTurboSpeed_Add; } set { _maxTurboSpeed_Add = value; } }
-
-        // TODO: aggiungere questi
-        // Maximum Turbo Fuel
-        // Turbo Fuel regeneration
-        // Turbo Fuel regeneration limit
-        // Modifier for Turbo Fuel gained from pickups
-
         // Ship's Size
         private int _size = 10;
         private float _size_Mul = 1f;
@@ -205,6 +181,67 @@ public class ShipStats : MonoBehaviour
     }
 
 
+    // ---------- TURBO ---------- //
+    public shipTurbo turboStats = new shipTurbo();
+
+    public class shipTurbo
+    {
+        // Engine's Turbo thrust
+        private int _turboThrust = 40000;
+        private float _turboThrust_Mul = 1f;
+        private int _turboThrust_Add = 0;
+
+        public int turboThrust { get { return _turboThrust; } set { _turboThrust = value; } }
+        public float turboThrust_Mul { get { return _turboThrust_Mul; } set { _turboThrust_Mul = value; } }
+        public int turboThrust_Add { get { return _turboThrust_Add; } set { _turboThrust_Add = value; } }
+
+        // Maximum Turbo speed
+        private int _maxTurboSpeed = 50;
+        private float _maxTurboSpeed_Mul = 1f;
+        private int _maxTurboSpeed_Add = 0;
+
+        public int maxTurboSpeed { get { return _maxTurboSpeed; } set { _maxTurboSpeed = value; } }
+        public float maxTurboSpeed_Mul { get { return _maxTurboSpeed_Mul; } set { _maxTurboSpeed_Mul = value; } }
+        public int maxTurboSpeed_Add { get { return _maxTurboSpeed_Add; } set { _maxTurboSpeed_Add = value; } }
+
+        // Maximum Turbo Fuel
+        private int _maxTurboFuel = 100;
+        private float _maxTurboFuel_Mul = 1f;
+        private int _maxTurboFuel_Add = 0;
+
+        public int maxTurboFuel { get { return _maxTurboFuel; } set { _maxTurboFuel = value; } }
+        public float maxTurboFuel_Mul { get { return _maxTurboFuel_Mul; } set { _maxTurboFuel_Mul = value; } }
+        public int maxTurboFuel_Add { get { return _maxTurboFuel_Add; } set { _maxTurboFuel_Add = value; } }
+
+        // Turbo Fuel regeneration
+        private int _turboFuelRegen = 0;
+        private float _turboFuelRegen_Mul = 1f;
+        private int _turboFuelRegen_Add = 0;
+
+        public int turboFuelRegen { get { return _turboFuelRegen; } set { _turboFuelRegen = value; } }
+        public float turboFuelRegen_Mul { get { return _turboFuelRegen_Mul; } set { _turboFuelRegen_Mul = value; } }
+        public int turboFuelRegen_Add { get { return _turboFuelRegen_Add; } set { _turboFuelRegen_Add = value; } }
+
+        // Turbo Fuel regeneration limit
+        private float _turboFuelRegenLimit = 0f;
+        private float _turboFuelRegenLimit_Mul = 1f;
+        private float _turboFuelRegenLimit_Add = 0f;
+
+        public float turboFuelRegenLimit { get { return _turboFuelRegenLimit; } set { _turboFuelRegenLimit = value; } }
+        public float turboFuelRegenLimit_Mul { get { return _turboFuelRegenLimit_Mul; } set { _turboFuelRegenLimit_Mul = value; } }
+        public float turboFuelRegenLimit_Add { get { return _turboFuelRegenLimit_Add; } set { _turboFuelRegenLimit_Add = value; } }
+
+        // Modifier for Turbo Fuel gained from pickups
+        private float _turboFuelPickupMod = 1f;
+        private float _turboFuelPickupMod_Mul = 1f;
+        private float _turboFuelPickupMod_Add = 0f;
+
+        public float turboFuelPickupMod { get { return _turboFuelPickupMod; } set { _turboFuelPickupMod = value; } }
+        public float turboFuelPickupMod_Mul { get { return _turboFuelPickupMod_Mul; } set { _turboFuelPickupMod_Mul = value; } }
+        public float turboFuelPickupMod_Add { get { return _turboFuelPickupMod_Add; } set { _turboFuelPickupMod_Add = value; } }
+    }
+
+
     // ---------- WEAPONS ---------- //
     public shipWpn shipWeapon_1 = new shipWpn();
     public shipWpn shipWeapon_2 = new shipWpn();
@@ -229,25 +266,31 @@ public class ShipStats : MonoBehaviour
         public float shieldDamageMod_Mul { get { return _shieldDamageMod_Mul; } set { _shieldDamageMod_Mul = value; } }
         public int shieldDamageMod_Add { get { return _shieldDamageMod_Add; } set { _shieldDamageMod_Add = value; } }
 
-        //// Weapon FireRate (bullets per seconds) VANNO RESI DEI MODIFIERS
-        //private int _FireRate = 5;
-        //private float _FireRate_Mul = 1f;
-        //private int _FireRate_Add = 0;
+        // Weapon FireRate Modifier (bullets per seconds)
+        private int _FireRateMod = 1;
+        private float _FireRateMod_Mul = 1f;
+        private int _FireRateMod_Add = 0;
 
-        //public int FireRate { get { return _FireRate; } set { _FireRate = value; } }
-        //public float FireRate_Mul { get { return _FireRate_Mul; } set { _FireRate_Mul = value; } }
-        //public int FireRate_Add { get { return _FireRate_Add; } set { _FireRate_Add = value; } }
+        public int FireRateMod { get { return _FireRate; } set { _FireRate = value; } }
+        public float FireRateMod_Mul { get { return _FireRate_Mul; } set { _FireRate_Mul = value; } }
+        public int FireRateMod_Add { get { return _FireRate_Add; } set { _FireRate_Add = value; } }
 
-        //// Weapon Shoot Impulse Force
-        //private int _ShootImpulse = 20;
-        //private float _ShootImpulse_Mul = 1f;
-        //private int _ShootImpulse_Add = 0;
+        // Weapon Shoot Impulse Force Modifier
+        private int _ShootImpulseMod = 1;
+        private float _ShootImpulseMod_Mul = 1f;
+        private int _ShootImpulseMod_Add = 0;
 
-        //public int ShootImpulse { get { return _ShootImpulse; } set { _ShootImpulse = value; } }
-        //public float ShootImpulse_Mul { get { return _ShootImpulse_Mul; } set { _ShootImpulse_Mul = value; } }
-        //public int ShootImpulse_Add { get { return _ShootImpulse_Add; } set { _ShootImpulse_Add = value; } }
+        public int ShootImpulseMod { get { return _ShootImpulse; } set { _ShootImpulse = value; } }
+        public float ShootImpulseMod_Mul { get { return _ShootImpulse_Mul; } set { _ShootImpulse_Mul = value; } }
+        public int ShootImpulseMod_Add { get { return _ShootImpulse_Add; } set { _ShootImpulse_Add = value; } }
 
-        //// Weapon Life Time (in seconds)
-        //private int _lifeTime = 1
+        // Weapon Life Time Modifier (in seconds) 
+        private int _lifeTimeMod = 1;
+        private float _lifeTimeMod_Mul = 1f;
+        private int _lifeTimeMod_Add = 0;
+
+        public int lifeTimeMod { get { return _lifeTimeMod; } set { _lifeTimeMod = value; } }
+        public float lifeTimeMod_Mul { get { return _lifeTimeMod_Mul; } set { _lifeTimeMod_Mul = value; } }
+        public int lifeTimeMod_Add { get { return _lifeTimeMod_Add; } set { _lifeTimeMod_Add = value; } }
     }
 }
